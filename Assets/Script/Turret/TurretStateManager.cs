@@ -9,11 +9,12 @@ public class TurretStateManager : MonoBehaviour
     TurretBaseState currentState;
     public IdleState idleState=new IdleState();
     public ShootingState shootingState=new ShootingState();
+    Collider collider;
 
     private void Start()
     {
         currentState=idleState;
-        currentState.EnterState(this,muzle);
+        currentState.EnterState(this,muzle,collider);
     }
 
     private void Update()
@@ -26,11 +27,16 @@ public class TurretStateManager : MonoBehaviour
     public void SwitchState(TurretBaseState state)
     {
         currentState = state;
-        state.EnterState(this, muzle);
+        state.EnterState(this,muzle,collider);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        currentState.OnCollisionEnter(this);
+        collider=other.GetComponent<Collider>();
+        currentState.OnEnter(this);
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        currentState.OnExit(this);
     }
 }
