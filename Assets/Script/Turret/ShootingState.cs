@@ -10,7 +10,7 @@ public class ShootingState : TurretBaseState
     long timer;
     long currentTime;
     Collider collider;
-    float speed=1f;
+    
 
     public override void EnterState(TurretStateManager turret,Transform muzle,Collider collider)
     {
@@ -46,6 +46,8 @@ public class ShootingState : TurretBaseState
             {
                 bullet.transform.position = muzle.position;
                 bullet.SetActive(true);
+                bullet.GetComponent<Rigidbody>().velocity=collider.transform.position;
+                Debug.Log(collider.transform.position);
             }
         }
     }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TurretStateManager : MonoBehaviour
@@ -9,30 +7,26 @@ public class TurretStateManager : MonoBehaviour
     TurretBaseState currentState;
     public IdleState idleState=new IdleState();
     public ShootingState shootingState=new ShootingState();
-    Collider collider;
+    public Collider enemy;
+    public float speed;
 
     private void Start()
     {
         currentState=idleState;
-        currentState.EnterState(this,muzle,collider);
+        currentState.EnterState(this,muzle,enemy);
     }
-
     private void Update()
     {
-
         currentState.UpdateState(this);
     }
-
-
     public void SwitchState(TurretBaseState state)
     {
         currentState = state;
-        state.EnterState(this,muzle,collider);
+        state.EnterState(this,muzle,enemy);
     }
-
     private void OnTriggerEnter(Collider other)
     {
-        collider=other.GetComponent<Collider>();
+        enemy=other.GetComponent<Collider>();
         currentState.OnEnter(this);
     }
     private void OnTriggerExit(Collider other)
