@@ -3,16 +3,26 @@ using UnityEngine;
 
 public class Totem : MonoBehaviour
 {
-    [SerializeField] List<GameObject> totemList=new List<GameObject>();
+    List<GameObject> totemList=new List<GameObject>();
     [SerializeField] GameObject turret;
-
+    [SerializeField] GameObject buff;
 
     private void OnMouseDown()
     {
-        if (turret==Hand.instance.item&&totemList.Count==0)
+        if (turret==Hand.instance.item&&totemList.Count>=0)
         {
-            Instantiate(Hand.instance.item, this.transform.position+Vector3.up*0.5f, Quaternion.identity);
+            GameObject instance=Instantiate(Hand.instance.item, this.transform.position+Vector3.up*totemList.Count, Quaternion.identity);
             totemList.Add(Hand.instance.item);
+            Hand.instance.item = null;
+        }else if (buff == Hand.instance.item&&totemList.Count>=1)
+        {
+            GameObject instance=Instantiate(Hand.instance.item, this.transform.position + Vector3.up * totemList.Count, Quaternion.identity);
+            totemList.Add(Hand.instance.item);
+            Hand.instance.item = null;
+        }else if (totemList.Count>0 &&Hand.instance.item==null)
+        {
+            Hand.instance.item = totemList[^1];
+            totemList.Count.CompareTo(^1);
         }
     }
 }

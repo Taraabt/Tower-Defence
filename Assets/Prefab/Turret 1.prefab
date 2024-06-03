@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8251213073743367851}
   - component: {fileID: 21396613042635618}
   - component: {fileID: 7542277826167571232}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Turret 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   muzle: {fileID: 3041304749311806334}
   enemy: {fileID: 0}
-  speed: 2
+  speed: 3
 --- !u!54 &7542277826167571232
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -109,7 +109,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3041304749311806334}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Muzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -142,7 +142,7 @@ GameObject:
   - component: {fileID: 1059577800884627589}
   - component: {fileID: 2670210207033586115}
   - component: {fileID: 2035918219818815960}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -225,7 +225,7 @@ GameObject:
   - component: {fileID: 894384377608026534}
   - component: {fileID: 4781828399096125066}
   - component: {fileID: 5134100151738092714}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -46,7 +46,8 @@ public class ShootingState : TurretBaseState
             {
                 bullet.transform.position = muzle.position;
                 bullet.SetActive(true);
-                bullet.GetComponent<Rigidbody>().velocity=collider.transform.position;
+                Vector3 dir = (collider.transform.position-bullet.transform.position).normalized;
+                bullet.GetComponent<Rigidbody>().velocity=dir*turret.speed;
                 Debug.Log(collider.transform.position);
             }
         }
